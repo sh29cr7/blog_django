@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 
 from django.views import generic
 
@@ -36,9 +36,9 @@ def model_form_upload(request):
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('/', name='home')
     else:
         form = DocumentForm()
-    return render(request, 'core/model_form_upload.html', {
+    return render(request, 'model_form_upload.html', {
         'form': form
     })
