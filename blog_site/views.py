@@ -18,7 +18,7 @@ class PostDetail(generic.DetailView):
     model = Post
     template_name='post_detail.html'
 
-class SimpleUpload(request):
+def simple_upload(request):
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
         fs = FileSystemStorage()
