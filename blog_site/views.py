@@ -8,6 +8,8 @@ from django.conf import settings
 
 from django.core.files.storage import FileSystemStorage
 
+from .forms import DocumentForm
+
 # Create your views here.
 
 class PostList(generic.ListView):
