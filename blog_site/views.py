@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 
 from django.views import generic
 
-from .models import Post
+from .models import Post, Document
 
 from django.conf import settings
 
@@ -32,12 +32,13 @@ class PostDetail(generic.DetailView):
     #return render(request,'/simple_upload.html')
 
 def model_form_upload(request):
+    document_name = Document()
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            file_name = request.FILES["description"]
-            return render(request,'file_upload_disp.html', {'file_name':file_name})
+            context=Document.objects.all()
+            return render(request,'file_upload_disp.html', {'context':context})
     else:
         form = DocumentForm()
     return render(request, 'model_form_upload.html', {
