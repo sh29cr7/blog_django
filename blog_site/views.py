@@ -36,7 +36,8 @@ def model_form_upload(request):
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('/', name='home')
+            file_name = request.FILES["description"]
+            return render(request,'file_upload_disp.html', {'file_name':file_name})
     else:
         form = DocumentForm()
     return render(request, 'model_form_upload.html', {
