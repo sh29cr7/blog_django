@@ -3,6 +3,8 @@
 {% block content %}
   <CENTER>
     <div class='jumbotron'>
-      <h1 class='display-4'>The file is uploaded.<br>{{object.description}}</h1>
+        {% for i in object %}
+      <h1 class='display-4'>The file is uploaded.<br>{{i.description}}</h1>
+        {% endfor %}
   <p><a href="{% url 'home' %}">Return to home</a></p>
 {% endblock %}

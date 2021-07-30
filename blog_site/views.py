@@ -37,7 +37,7 @@ def model_form_upload(request):
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            context=Document.objects.all()
+            context['object']=Document.objects.all()
             return render(request,'file_upload_disp.html', {'context':context})
     else:
         form = DocumentForm()
