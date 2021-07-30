@@ -4,7 +4,8 @@
   <CENTER>
     <div class='jumbotron'>
         {% for i in object %}
-      <h1 class='display-4'>The file is uploaded.<br>{{i.description}}</h1>
+      <h1 class='display-8'>"File download below."</h1>
+      <a href="{{i.document.url}}" download> Download File<br>{{i.description}}</a>
         {% endfor %}
   <p><a href="{% url 'home' %}">Return to home</a></p>
 {% endblock %}
